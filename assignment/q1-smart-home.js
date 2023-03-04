@@ -7,22 +7,37 @@
 */
 
 // Task: Add code here
+class BaseSignal {
+  constructor(type) {
+    if (new.target === BaseSignal) {
+      throw new TypeError("Cannot construct BaseSignal instances directly");
+    }
+    this.type = type;
+  }
+
+  send() {
+    console.log(`Sending ${this.type} signal`);
+  }
+}
 
 class TvSignal extends BaseSignal {
     constructor(){
         // Add code here
+        super("tv");
     }
 }
 
 class AirconSignal extends BaseSignal {
     constructor(){
         // Add code here
+        super("aircon");
     }
 }
 
 class DoorSignal extends BaseSignal {
     constructor(){
         // Add code here
+        super("door")
     }
 }
 
